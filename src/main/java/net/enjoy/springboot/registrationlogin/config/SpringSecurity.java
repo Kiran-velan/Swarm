@@ -26,15 +26,15 @@ public class SpringSecurity {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/index").permitAll()
-                                .requestMatchers("/users").hasRole("ADMIN")
+                .authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers("/", "/home", "/register/**", "/index", "/user", "/organizer", "/discussion").permitAll() // Allow discussion page
+                        .requestMatchers("/users").hasRole("ADMIN") // Restrict users page to admins
+                        .anyRequest().authenticated() // Require authentication for other requests
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/users")
+                                .defaultSuccessUrl("/users") // Redirect after login
                                 .permitAll()
                 ).logout(
                         logout -> logout
@@ -43,6 +43,7 @@ public class SpringSecurity {
                 );
         return http.build();
     }
+
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

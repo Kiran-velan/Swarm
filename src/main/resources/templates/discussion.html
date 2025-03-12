@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swarm AI Interface</title>
+  <style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f8f8f8;
+        padding: 10px;
+    }
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        border: 2px solid green;
+        padding: 10px;
+        background: white;
+    }
+    /* Header Section */
+    .header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        gap: 10px;
+        text-align: center;
+    }
+    .header div {
+        padding: 15px;
+        border: 2px solid green;
+        font-weight: bold;
+    }
+    /* Middle Section */
+    .middle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+        align-items: center;
+    }
+    .middle div {
+        border: 2px solid green;
+        padding: 20px;
+        text-align: center;
+    }
+    /* Hexagon Layout */
+    .hexagon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+    .hexagon {
+        width: 90%;
+        max-width: 250px;
+        aspect-ratio: 1;
+        position: relative;
+    }
+    .hexagon div {
+        width: 20%;
+        height: 20%;
+        background-color: green;
+        position: absolute;
+        border-radius: 50%;
+    }
+    .hexagon .center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 25%;
+        height: 25%;
+        border: 3px solid green;
+        background: white;
+    }
+    .hexagon .top { top: 0; left: 50%; transform: translateX(-50%); }
+    .hexagon .bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
+    .hexagon .top-left { top: 25%; left: 10%; }
+    .hexagon .top-right { top: 25%; right: 10%; }
+    .hexagon .bottom-left { bottom: 25%; left: 10%; }
+    .hexagon .bottom-right { bottom: 25%; right: 10%; }
+    /* Chat Section */
+    .chat-section {
+        margin-top: 10px;
+        border: 2px solid green;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+        .middle {
+            grid-template-columns: 1fr;
+        }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <div>Description</div>
+    <div>Timer</div>
+    <div>Question</div>
+  </div>
+
+  <!-- Middle Section -->
+  <div class="middle">
+    <div class="hexagon-container">
+      <div class="hexagon">
+        <div class="center"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="top-left"></div>
+        <div class="top-right"></div>
+        <div class="bottom-left"></div>
+        <div class="bottom-right"></div>
+      </div>
+    </div>
+    <div>
+      <p><b>Confidence Slider</b></p>
+      <p>(Sum of response given by user is no more than 100)</p>
+    </div>
+  </div>
+
+  <!-- Chat Section -->
+  <div class="chat-section">
+    Chat room along with AI interaction<br>
+    Multiple chat rooms with different set of users simultaneously integrated
+  </div>
+</div>
+</body>
+</html>

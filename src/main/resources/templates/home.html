@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Swarm AI Platform</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+    }
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        background-color: #007BFF;
+        color: white;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .content {
+        margin-top: 30px;
+        width: 60%;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Welcome to Swarm AI Platform</h1>
+
+  <div class="buttons">
+    <button onclick="showContent('about')">About</button>
+    <button onclick="window.location.href='/organizer'">Organizer</button>
+    <button onclick="window.location.href='/user'">User</button>
+  </div>
+
+  <div class="content" id="content">
+    <p id="aboutText">This platform helps facilitate discussions using Swarm AI.</p>
+  </div>
+</div>
+
+<script>
+  function showContent(section) {
+      if (section === 'about') {
+          document.getElementById('aboutText').innerText = "This platform helps facilitate discussions using Swarm AI.";
+      }
+  }
+</script>
+
+</body>
+</html>
